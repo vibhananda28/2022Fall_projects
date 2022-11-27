@@ -24,11 +24,12 @@ To be added
 ## CITATIONS
 1. World Bank WDI: https://databank.worldbank.org/source/world-development-indicators
 2. OECD: https://stats.oecd.org/Index.aspx?DataSetCode=WSECTOR
-##### Regex: 
+
+##### REGEX: 
 3. https://regexr.com/631qa
 4. https://www.w3schools.com/python/python_regex.asp
 
-##### Reshaping:
+##### RESHAPING:
 4. https://stackoverflow.com/questions/37418295/wide-to-long-data-transform-in-pandas
 5. https://stackoverflow.com/questions/50856183/pandas-wide-to-long-the-id-variables-need-to-uniquely-identify-each-row
 6. https://pandas.pydata.org/docs/reference/api/pandas.wide_to_long.html
