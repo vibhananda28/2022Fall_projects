@@ -18,4 +18,5 @@ ANALYSIS 1: We can take different variables (like population density, electronic
 To be added
 
 ## CITATIONS
-
+1. World Bank WDI: https://databank.worldbank.org/source/world-development-indicators
+2. OECD: https://stats.oecd.org/Index.aspx?DataSetCode=WSECTOR
