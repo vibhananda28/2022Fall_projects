@@ -34,4 +34,4 @@ To be added
 4. https://stackoverflow.com/questions/37418295/wide-to-long-data-transform-in-pandas
 5. https://stackoverflow.com/questions/50856183/pandas-wide-to-long-the-id-variables-need-to-uniquely-identify-each-row
 6. https://pandas.pydata.org/docs/reference/api/pandas.wide_to_long.html
-7. 
+7. https://towardsdatascience.com/reshaping-a-pandas-dataframe-long-to-wide-and-vice-versa-517c7f0995ad
