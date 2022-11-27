@@ -6,13 +6,17 @@ Climate change is often linked to the dooms day that bestows upon the world toda
 2. Variables include: Education expenditure by government, total educational attainment (at least until bachelor's degree), educational attainment for women, poverty statistics, population growth and levels, Forest coverage, GDP per capita (real) and growth, municipal waste generation, % material recovery (recycled + composting).
 
 ## HYPOTHESIS AND ANALYSIS
-### HYP 1: Electronic waste generation per capita and % of material recovery have a strong relationship with education. We will use both education attainment and education expenditure statistics to evaluate the relationship. 
+### HYP 1: 
+Electronic waste generation per capita and % of material recovery have a strong relationship with education. We will use both education attainment and education expenditure statistics to evaluate the relationship. 
 
-HYP 2: We expect the waste production trend to be downwards and recovery % to be upwards, especially post 2015 when all UN members agreed to UN’s Sustainable Development Goals (Goal 13: Climate action- Take urgent action to combat climate change and its impacts). The Paris Climate Change Agreement was also launched in 2015 making the hypothesis more sound. 
+### HYP 2: 
+We expect the waste production trend to be downwards and recovery % to be upwards, especially post 2015 when all UN members agreed to UN’s Sustainable Development Goals (Goal 13: Climate action- Take urgent action to combat climate change and its impacts). The Paris Climate Change Agreement was also launched in 2015 making the hypothesis more sound. 
 
-HYP 3: We expect some co-integration between waste generation and forest cover depletion. We will explore the relationship between the two to draw some insights. We will strive to use both WB and OECD (https://stats.oecd.org/Index.aspx?DataSetCode=WSECTOR) data for this.
+### HYP 3: 
+We expect some co-integration between waste generation and forest cover depletion. We will explore the relationship between the two to draw some insights. We will strive to use both WB and OECD (https://stats.oecd.org/Index.aspx?DataSetCode=WSECTOR) data for this.
 
-ANALYSIS 1: We can take different variables (like population density, electronic waste, municipal waste generated) and countries to create a birpartite graph with variables on one side and countries on the other. In this hypothesis we will test which variables are most related to each other on the basis of homophily and link prediction. 
+### ANALYSIS 1: 
+We can take different variables (like population density, electronic waste, municipal waste generated) and countries to create a birpartite graph with variables on one side and countries on the other. In this hypothesis we will test which variables are most related to each other on the basis of homophily and link prediction. 
 
 ## CONCLUSIONS
 To be added
