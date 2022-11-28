@@ -35,3 +35,5 @@ To be added
 5. https://stackoverflow.com/questions/50856183/pandas-wide-to-long-the-id-variables-need-to-uniquely-identify-each-row
 6. https://pandas.pydata.org/docs/reference/api/pandas.wide_to_long.html
 7. https://towardsdatascience.com/reshaping-a-pandas-dataframe-long-to-wide-and-vice-versa-517c7f0995ad
+8. https://stackoverflow.com/questions/43756052/transform-pandas-pivot-table-to-regular-dataframe
+
