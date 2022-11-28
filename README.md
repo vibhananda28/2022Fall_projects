@@ -37,3 +37,5 @@ To be added
 7. https://towardsdatascience.com/reshaping-a-pandas-dataframe-long-to-wide-and-vice-versa-517c7f0995ad
 8. https://stackoverflow.com/questions/43756052/transform-pandas-pivot-table-to-regular-dataframe
 
+##### MERGE:
+9. https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html
