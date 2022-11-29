@@ -44,3 +44,9 @@ To be added
 10. https://www.geeksforgeeks.org/python-pandas-dataframe-dtypes/
 11. https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.astype.html
 
+##### PLOTS: 
+12. https://github.com/AbhishaPT/2022Spring_Finals
+13. https://datagy.io/python-correlation-matrix/
+14. https://datatofish.com/correlation-matrix-pandas/
+15. https://www.geeksforgeeks.org/plotting-graph-using-seaborn-python/
+16. https://seaborn.pydata.org/tutorial/introduction
