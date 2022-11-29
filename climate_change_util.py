@@ -55,3 +55,20 @@ def wide_to_long(df,stubname_var,i_list,j_var,reindex_list):
     df_reshaped = df_reshaped.reset_index().reindex(reindex_list, #["Country Code", "Country Name", "Year", "Series Name", "YR"]
                                                      axis=1)
     return df_reshaped
+
+
+def convert_dtype(df, float_list, int_list, str_list):
+    """
+    Function to convert list of variables that are by default of object type, to relevant type.
+    :param df: dataframe/file object name
+    :param float_list: variable list to be converted to float type
+    :param int_list: variable list to be converted to integer type
+    :param str_list: variable list to be converted to string type
+    :return:
+    """
+    for var in float_list:
+        df[var] = df[var].astype('float64', errors='raise')
+    for var in int_list:
+        df[var] = df[var].astype('int64', errors='raise')
+    for var in str_list:
+        df[var] = df[var].astype('string')
