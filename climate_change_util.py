@@ -3,6 +3,7 @@
 import re
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 def clean_data(dataframe,column_list):
@@ -72,3 +73,15 @@ def convert_dtype(df, float_list, int_list, str_list):
         df[var] = df[var].astype('int64', errors='raise')
     for var in str_list:
         df[var] = df[var].astype('string')
+
+
+def hist_plots(df,var):
+    """
+    Function to plot histograms for each column from a list.
+    :param df: dataframe/file object name
+    :param var: variable name for plotting
+    :return: returns a histogram plot for the variable
+    """
+    plt.hist(df[var], bins='auto', color='#0504aa')
+    plt.title(var)
+    plt.show()
