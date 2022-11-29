@@ -39,3 +39,8 @@ To be added
 
 ##### MERGE:
 9. https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html
+
+##### DTYPES: 
+10. https://www.geeksforgeeks.org/python-pandas-dataframe-dtypes/
+11. https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.astype.html
+
