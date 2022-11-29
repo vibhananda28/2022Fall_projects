@@ -50,3 +50,8 @@ To be added
 14. https://datatofish.com/correlation-matrix-pandas/
 15. https://www.geeksforgeeks.org/plotting-graph-using-seaborn-python/
 16. https://seaborn.pydata.org/tutorial/introduction
+
+##### JUPYTER NOTEBOOK: 
+17. https://stackoverflow.com/questions/20186344/importing-an-ipynb-file-from-another-ipynb-file
+18. https://docs.qubole.com/en/latest/user-guide/notebooks-and-dashboards/notebooks/jupyter-notebooks/running-jupy-notebooks.html#running-a-jupyter-notebook-from-another-jupyter-notebook
+
