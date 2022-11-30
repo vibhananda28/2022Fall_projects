@@ -4,6 +4,7 @@ import re
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 
 def clean_data(dataframe,column_list):
@@ -75,14 +76,14 @@ def convert_dtype(df, float_list, int_list, str_list):
         df[var] = df[var].astype('string')
 
 
-def hist_plots(df,var):
+def density_plots(df,var):
     """
-    Function to plot histograms for each column from a variable list.
+    Function to plot histograms with density plots for each column from a variable list.
     :param df: dataframe/file object name
     :param var: variable name for plotting
     :return: returns a histogram plot for the variable
     """
-    plt.hist(df[var], bins='auto', color='#0504aa')
+    sns.displot(data=df[var], kde=True)
     plt.title(var)
     plt.show()
 
@@ -99,4 +100,3 @@ def median_trend_plots(df,year_var,plot_var):
     plt.title(plot_var)
     plt.show()
 
-    
