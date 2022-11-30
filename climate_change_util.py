@@ -77,7 +77,7 @@ def convert_dtype(df, float_list, int_list, str_list):
 
 def hist_plots(df,var):
     """
-    Function to plot histograms for each column from a list.
+    Function to plot histograms for each column from a variable list.
     :param df: dataframe/file object name
     :param var: variable name for plotting
     :return: returns a histogram plot for the variable
@@ -85,3 +85,18 @@ def hist_plots(df,var):
     plt.hist(df[var], bins='auto', color='#0504aa')
     plt.title(var)
     plt.show()
+
+
+def median_trend_plots(df,year_var,plot_var):
+    """
+    Function to plot median trend line plots for each column from a variable list.
+    :param df: dataframe/file object name
+    :param year_var: time variable
+    :param plot_var: variable name for plotting
+    :return: returns a median trend line plot for the variable
+    """
+    df.groupby(year_var)[plot_var].median().plot()
+    plt.title(plot_var)
+    plt.show()
+
+    
