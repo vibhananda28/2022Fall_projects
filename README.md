@@ -20,6 +20,13 @@ We can take different variables (like population density, electronic waste, muni
 
 ## CONCLUSIONS
 To be added
+#### HYP 1: 
+
+#### HYP 2:
+
+#### HYP 3: 
+
+#### ANALYSIS 1: 
 
 ## CITATIONS
 ##### DATA:
@@ -44,14 +51,16 @@ To be added
 10. https://www.geeksforgeeks.org/python-pandas-dataframe-dtypes/
 11. https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.astype.html
 
-##### PLOTS: 
-12. https://github.com/AbhishaPT/2022Spring_Finals
-13. https://datagy.io/python-correlation-matrix/
-14. https://datatofish.com/correlation-matrix-pandas/
-15. https://www.geeksforgeeks.org/plotting-graph-using-seaborn-python/
-16. https://seaborn.pydata.org/tutorial/introduction
-
 ##### JUPYTER NOTEBOOK: 
-17. https://stackoverflow.com/questions/20186344/importing-an-ipynb-file-from-another-ipynb-file
-18. https://docs.qubole.com/en/latest/user-guide/notebooks-and-dashboards/notebooks/jupyter-notebooks/running-jupy-notebooks.html#running-a-jupyter-notebook-from-another-jupyter-notebook
+12. https://stackoverflow.com/questions/20186344/importing-an-ipynb-file-from-another-ipynb-file
+13. https://docs.qubole.com/en/latest/user-guide/notebooks-and-dashboards/notebooks/jupyter-notebooks/running-jupy-notebooks.html#running-a-jupyter-notebook-from-another-jupyter-notebook
 
+##### PLOTS: 
+14. https://github.com/AbhishaPT/2022Spring_Finals
+15. https://datagy.io/python-correlation-matrix/
+16. https://datatofish.com/correlation-matrix-pandas/
+17. https://www.geeksforgeeks.org/plotting-graph-using-seaborn-python/
+18. https://seaborn.pydata.org/tutorial/introduction
+19. https://engineeringfordatascience.com/posts/matplotlib_subplots/
+20. https://stackoverflow.com/questions/71403746/creating-time-series-plots-with-the-countries-as-subplots
+21. https://python.quantecon.org/pandas_panel.html
