@@ -28,6 +28,9 @@ To be added
 
 #### ANALYSIS 1: 
 
+## NOTE: 
+We would like to note that we understand that correlation does not prove causation. Panel data regression or Machine Learning models to understand further causation or relationships between the variables was beyond the scope of this project. However, we intend to draw some insights to aid future studies through our analysis. 
+
 ## CITATIONS
 ##### DATA:
 1. World Bank WDI: https://databank.worldbank.org/source/world-development-indicators
@@ -64,3 +67,6 @@ To be added
 19. https://engineeringfordatascience.com/posts/matplotlib_subplots/
 20. https://stackoverflow.com/questions/71403746/creating-time-series-plots-with-the-countries-as-subplots
 21. https://python.quantecon.org/pandas_panel.html
+
+##### STATISTICS: 
+22. https://www.geeksforgeeks.org/python-pearson-correlation-test-between-two-variables/
