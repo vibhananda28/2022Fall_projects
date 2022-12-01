@@ -1,5 +1,6 @@
 # CLIMATE CHANGE AND WASTE MANAGEMENT: A DIVE INTO HOW THE DEVELOPED COUNTRIES MANAGE WASTE
 Climate change is often linked to the dooms day that bestows upon the world today. Waste generation and management is known to be a leading cause of global warming. Developed countries have more resources at their disposal to treat waste appropriately and are yet known to generate more waste than the developing economies. We find more guides than analysis to evaluate how the developed world is managing its waste. In this project, we focus on how developed countries manage and treat waste and how it is related to some economic factors like education attainment, population density and poverty. We are going to use a variety of visualizations and data analysis tools. 
+
 ## DATA 
 1. We have 2 datasets: World Bank's [World Development Indicators](https://databank.worldbank.org/source/world-development-indicators) and [OECD waste database](https://stats.oecd.org/Index.aspx?DataSetCode=WSECTOR) (data ranges from 1990-2021).
 
