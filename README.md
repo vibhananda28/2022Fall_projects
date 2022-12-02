@@ -1,5 +1,6 @@
 # CLIMATE CHANGE AND WASTE MANAGEMENT: A DIVE INTO HOW THE DEVELOPED COUNTRIES MANAGE WASTE
 Climate change is often linked to the dooms day that bestows upon the world today. Waste generation and management is known to be a leading cause of global warming. Developed countries have more resources at their disposal to treat waste appropriately and are yet known to generate more waste than the developing economies. We find more guides than analysis to evaluate how the developed world is managing its waste. In this project, we focus on how developed countries manage and treat waste and how it is related to some economic factors like education attainment, population density and poverty. We are going to use a variety of visualizations and data analysis tools. 
+
 ## DATA 
 1. We have 2 datasets: World Bank's [World Development Indicators](https://databank.worldbank.org/source/world-development-indicators) and [OECD waste database](https://stats.oecd.org/Index.aspx?DataSetCode=WSECTOR) (data ranges from 1990-2021).
 
@@ -15,8 +16,6 @@ We expect the waste production trend to be downwards and recovery % to be upward
 #### HYP 3: 
 We expect some co-integration between waste generation and forest cover depletion. We will explore the relationship between the two to draw some insights. We will strive to use both [WB](https://databank.worldbank.org/source/world-development-indicators) and [OECD](https://stats.oecd.org/Index.aspx?DataSetCode=WSECTOR) data for this.
 
-#### ANALYSIS 1: 
-We can take different variables (like population density, electronic waste, municipal waste generated) and countries to create a birpartite graph with variables on one side and countries on the other. In this hypothesis we will test which variables are most related to each other on the basis of homophily and link prediction. 
 
 ## CONCLUSIONS
 To be added
@@ -26,7 +25,6 @@ To be added
 
 #### HYP 3: 
 
-#### ANALYSIS 1: 
 
 ## NOTE: 
 We would like to note that we understand that correlation does not prove causation. Panel data regression or Machine Learning models to understand further causation or relationships between the variables was beyond the scope of this project. However, we intend to draw some insights to aid future studies through our analysis. 
