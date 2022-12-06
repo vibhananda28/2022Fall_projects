@@ -16,16 +16,22 @@ from IPython.display import display, HTML
 # import matplotlib.pyplot as plt
 # # Uncomment these lines if pycharm shows an error Like "AttributeError: module 'backend_interagg' has no attribute 'FigureCanvas'"
 
-# Hypothesis 2 only function
-def clean_data1(df1):
+# Hypothesis 2 and 3 common function
+def clean_data1(df1, vlist):
     """
     Function to clean dataframe and returned the cleaned dataframe. Function removes rows with very less data
     or all nan values present in the columns used for analysis.
     :param df1: Input original data frame
+    :param vlist: List of variables to consider while cleaning dataframe
     :return: Cleaned dataframe
 
     >>> clean_df = pd.read_csv("clean_df.csv")
-    >>> clean_data1(clean_df) # doctest: +ELLIPSIS
+    >>> clean_data1(clean_df, ["Recovery%", "Municipal_waste_generated_percapita"]) # doctest: +ELLIPSIS
+          Unnamed: 0  Year  ... Population_urban% Population_urban_growth%
+    0              0  1990  ...            62.960                 0.332494
+    ...
+    >>> clean_df = pd.read_csv("clean_df.csv")
+    >>> clean_data1(clean_df, ["Forest_area", "Municipal_waste_generated_percapita"]) # doctest: +ELLIPSIS
           Unnamed: 0  Year  ... Population_urban% Population_urban_growth%
     0              0  1990  ...            62.960                 0.332494
     ...
@@ -34,11 +40,12 @@ def clean_data1(df1):
     alist = df1["Country"].unique()
     for i1 in alist:
         df2 = df1.loc[df1["Country"] == i1]
-        len_recovery = len(df2["Recovery%"].unique())
-        len_municipal = len(df2["Municipal_waste_generated_percapita"].unique())
-        if (len_recovery < 3 or len_municipal < 3):
-            del_row = df1.loc[df1["Country"] == i1].index
-            df1 = df1.drop(del_row)
+        for j1 in vlist:
+            len_var = len(df2[j1].unique())
+            if (len_var<3):
+                del_row = df1.loc[df1["Country"] == i1].index
+                df1 = df1.drop(del_row)
+                break
 
     return df1
 
@@ -51,7 +58,7 @@ def time_series(ts1, variable):
     :return: figure and axis of the plot
 
     >>> clean_df = pd.read_csv("clean_df.csv") # doctest: +ELLIPSIS
-    >>> clean_df = clean_data1(clean_df) # doctest: +ELLIPSIS
+    >>> clean_df = clean_data1(clean_df, ["Recovery%", "Municipal_waste_generated_percapita"]) # doctest: +ELLIPSIS
     >>> time_series(clean_df, "Recovery%")
     (<Figure size 1000x500 with 1 Axes>, <AxesSubplot: title={'center': 'Recovery% as a function of time'}, ylabel='Recovery%'>)
     """
@@ -81,7 +88,7 @@ def time_series_subplots(ts1, variable):
     :return: figure and axis of the plot
 
     >>> clean_df = pd.read_csv("clean_df.csv")
-    >>> clean_df = clean_data1(clean_df)
+    >>> clean_df = clean_data1(clean_df, ["Recovery%", "Municipal_waste_generated_percapita"])
     >>> time_series_subplots(clean_df, "Recovery%") # doctest: +ELLIPSIS
     (<Figure size 2000x3000 with 37 Axes>, array([[<AxesSubplot: title={'center': 'Austria'}, xlabel='Time', ylabel='Recovery%'>,
     ...
@@ -120,25 +127,30 @@ def time_series_subplots(ts1, variable):
 
     return fig, axs
 
-# Hypothesis 2 only function
-def calculate_correlation(df1):
+# Hypothesis 2 and 3 common function
+def calculate_correlation(df1, vlist):
     """
-    Calculates the correlation between Recovery% and Municipal_waste_generated_percapita variables
+    Calculates the correlation between the variables given in vlist
     :param df1: Input dataframe
-    :return: The correlation values beween Recovery% and Municipal_waste_generated_percapita variables for different
-            countries
+    :param vlist: List of variables to consider for correlation
+    :return: The correlation values beween variables in vlist for different countries
 
     >>> clean_df = pd.read_csv("clean_df.csv")
-    >>> clean_df = clean_data1(clean_df)
-    >>> calculate_correlation(clean_df) # doctest: +ELLIPSIS
+    >>> clean_df = clean_data1(clean_df, ["Recovery%", "Municipal_waste_generated_percapita"])
+    >>> calculate_correlation(clean_df, ["Recovery%", "Municipal_waste_generated_percapita"]) # doctest: +ELLIPSIS
     [['Austria', 0.8118070209887488],...
+
+    >>> clean_df = pd.read_csv("clean_df.csv")
+    >>> clean_df = clean_data1(clean_df, ["Forest_area", "Municipal_waste_generated_percapita"])
+    >>> calculate_correlation(clean_df, ["Forest_area", "Municipal_waste_generated_percapita"]) # doctest: +ELLIPSIS
+    [['Austria', 0.8267992985009449], ['Belgium', -0.32137698966537276],...
     """
 
     alist = []
     for i1 in df1['Country'].unique():
-        df2 = df1.loc[df1['Country'] == i1][['Country', "Recovery%", "Municipal_waste_generated_percapita"]]
+        df2 = df1.loc[df1['Country'] == i1][['Country', vlist[0], vlist[1]]]
         df2 = df2.dropna()
-        corr, _ = pearsonr(df2["Recovery%"], df2["Municipal_waste_generated_percapita"])
+        corr, _ = pearsonr(df2[vlist[0]], df2[vlist[1]])
         alist.append([i1, corr])
 
     return alist
@@ -151,8 +163,8 @@ def country_groups(alist):
     :return: 3 groups of countries based on the correlation values
 
     >>> clean_df = pd.read_csv("clean_df.csv")
-    >>> clean_df = clean_data1(clean_df)
-    >>> alist = calculate_correlation(clean_df)
+    >>> clean_df = clean_data1(clean_df, ["Recovery%", "Municipal_waste_generated_percapita"])
+    >>> alist = calculate_correlation(clean_df, ["Recovery%", "Municipal_waste_generated_percapita"])
     >>> country_groups(alist)# doctest: +ELLIPSIS
     ([['Germany', -0.3385490316420527], ['Spain', -0.33825072508548054],...
     """
@@ -170,130 +182,29 @@ def country_groups(alist):
 
     return alist1, alist2, alist3
 
-# Hypothesis 2 only function
-def group_time_series(ts1, corr_list, figure_size):
+# Hypothesis 2 and 3 common function
+def group_time_series(ts1, corr_list, figure_size, vlist):
     """
-    Creates a plot for a given group (corr_list) that compares the Recovery% and Municipal_waste_generated_percapita
+    Creates a plot for a given group (corr_list) that compares the variables in vlist
     variables over time for different countries
     :param ts1: The input dataframe having data
     :param corr_list: The input group of countries that were group based on their correlation values
     :param figure_size: The figure size of the whole plot
+    :param vlist: List of variables to consider while generating group time series plots
     :return: Figure and axis of the plot
 
     >>> clean_df = pd.read_csv("clean_df.csv")
-    >>> clean_df = clean_data1(clean_df)
-    >>> alist = calculate_correlation(clean_df)
+    >>> clean_df = clean_data1(clean_df, ["Recovery%", "Municipal_waste_generated_percapita"])
+    >>> alist = calculate_correlation(clean_df, ["Recovery%", "Municipal_waste_generated_percapita"])
     >>> corr_list1, corr_list2, corr_list3 = country_groups(alist)
-    >>> group_time_series(clean_df, corr_list1, (20,20))# doctest: +ELLIPSIS
+    >>> group_time_series(clean_df, corr_list1, (20,20), ["Recovery%", "Municipal_waste_generated_percapita"])# doctest: +ELLIPSIS
     (<Figure size 2000x2000 with 20 Axes>, array([[<AxesSubplot: title={'center': 'Germany'}, xlabel='Time', ylabel='Recovery%'>,...
-    """
-    tot_num = len(corr_list) * 2
-    num_col = 4  # number of figures to display in one row
-    # Calculating number of rows
-    num_row = tot_num
-    if (tot_num % num_col == 0):
-        num_rows = tot_num // num_col
-    else:
-        num_rows = (tot_num // num_col) + 1
-
-    fig, axs = plt.subplots(figsize=figure_size, nrows=num_rows, ncols=num_col)
-    cnt = 0
-    fig.tight_layout(pad=4.0)
-
-    for key1 in corr_list:
-        ts2 = ts1[ts1["Country"] == key1[0]]
-        x1 = ts2["Year"]
-        y1 = ts2["Recovery%"]
-        y2 = ts2["Municipal_waste_generated_percapita"]
-
-        i1 = cnt // num_col
-        j1 = cnt % num_col
-
-        axs[i1, j1].set_title(key1[0])
-        axs[i1, j1].set_ylabel("Recovery%")
-        axs[i1, j1].set_xlabel("Time")
-        axs[i1, j1].scatter(x1, y1)
-
-        axs[i1, j1 + 1].set_title(key1[0])
-        axs[i1, j1 + 1].set_ylabel("Municipal_waste_generated_percapita")
-        axs[i1, j1 + 1].set_xlabel("Time")
-        axs[i1, j1 + 1].scatter(x1, y2, color="orange")
-        cnt += 2
-
-    # Deleting the empty figures
-    j1 = -1
-    for i1 in range((num_col * num_rows) - tot_num):
-        fig.delaxes(axs[-1][j1])
-        j1 -= 1
-
-    return fig, axs
-
-#Hypothesis 3 only function
-def clean_data_hyp3(df1):
-    """
-    Function to clean dataframe and returned the cleaned dataframe. Function removes rows with very less data
-    or all nan values present in the columns used for analysis.
-    :param df1: Input original data frame
-    :return: Cleaned dataframe
-    :param df1:
-    :return:
 
     >>> clean_df = pd.read_csv("clean_df.csv")
-    >>> clean_data_hyp3(clean_df) # doctest: +ELLIPSIS
-          Unnamed: 0  Year  ... Population_urban% Population_urban_growth%
-    0              0  1990  ...            62.960                 0.332494
-    ...
-    """
-    alist = df1["Country"].unique()
-    for i1 in alist:
-        df2 = df1.loc[df1["Country"] == i1]
-        len_population = len(df2["Population_total"].unique())
-        len_municipal = len(df2["Municipal_waste_generated_percapita"].unique())
-        len_forest = len(df2["Forest_area"].unique())
-
-        if (len_population < 3 or len_municipal < 3 or len_forest < 3):
-            del_row = df1.loc[df1["Country"] == i1].index
-            df1 = df1.drop(del_row)
-
-    return df1
-
-#Hypothesis 3 only function
-def calculate_correlation_hyp3(df1):
-    """
-    Calculates the correlation between Forest_area and Municipal_waste_generated_percapita variables
-    :param df1: Input dataframe
-    :return: The correlation values beween Forest_area and Municipal_waste_generated_percapita variables for different
-            countries
-
-    >>> clean_df = pd.read_csv("clean_df.csv")
-    >>> clean_df = clean_data_hyp3(clean_df)
-    >>> calculate_correlation_hyp3(clean_df) # doctest: +ELLIPSIS
-    [['Austria', 0.8267992985009449], ['Belgium', -0.32137698966537276],...
-    """
-    alist = []
-    for i1 in df1['Country'].unique():
-        df2 = df1.loc[df1['Country'] == i1][['Country', "Forest_area", "Municipal_waste_generated_percapita"]]
-        df2 = df2.dropna()
-        corr, _ = pearsonr(df2["Forest_area"], df2["Municipal_waste_generated_percapita"])
-        alist.append([i1, corr])
-
-    return alist
-
-#Hypothesis 3 only function
-def group_time_series_hyp3(ts1, corr_list, figure_size):
-    """
-    Creates a plot for a given group (corr_list) that compares the Forest_area and Municipal_waste_generated_percapita
-    variables over time for different countries
-    :param ts1: The input dataframe having data
-    :param corr_list: The input group of countries that were group based on their correlation values
-    :param figure_size: The figure size of the whole plot
-    :return: Figure and axis of the plot
-
-    >>> clean_df = pd.read_csv("clean_df.csv")
-    >>> clean_df = clean_data_hyp3(clean_df)
-    >>> alist = calculate_correlation_hyp3(clean_df)
+    >>> clean_df = clean_data1(clean_df, ["Forest_area", "Municipal_waste_generated_percapita"])
+    >>> alist = calculate_correlation(clean_df, ["Forest_area", "Municipal_waste_generated_percapita"])
     >>> corr_list1, corr_list2, corr_list3 = country_groups(alist)
-    >>> group_time_series_hyp3(clean_df, corr_list1, (20,20))# doctest: +ELLIPSIS
+    >>> group_time_series(clean_df, corr_list1, (20,20), ["Forest_area", "Municipal_waste_generated_percapita"])# doctest: +ELLIPSIS
     (<Figure size 2000x2000 with 34 Axes>, array([[<AxesSubplot: title={'center': 'Belgium'}, xlabel='Time', ylabel='Forest_area'>,...
     """
     tot_num = len(corr_list) * 2
@@ -312,19 +223,19 @@ def group_time_series_hyp3(ts1, corr_list, figure_size):
     for key1 in corr_list:
         ts2 = ts1[ts1["Country"] == key1[0]]
         x1 = ts2["Year"]
-        y1 = ts2["Forest_area"]
-        y2 = ts2["Municipal_waste_generated_percapita"]
+        y1 = ts2[vlist[0]]
+        y2 = ts2[vlist[1]]
 
         i1 = cnt // num_col
         j1 = cnt % num_col
 
         axs[i1, j1].set_title(key1[0])
-        axs[i1, j1].set_ylabel("Forest_area")
+        axs[i1, j1].set_ylabel(vlist[0])
         axs[i1, j1].set_xlabel("Time")
         axs[i1, j1].scatter(x1, y1)
 
         axs[i1, j1 + 1].set_title(key1[0])
-        axs[i1, j1 + 1].set_ylabel("Municipal_waste_generated_percapita")
+        axs[i1, j1 + 1].set_ylabel(vlist[1])
         axs[i1, j1 + 1].set_xlabel("Time")
         axs[i1, j1 + 1].scatter(x1, y2, color="orange")
         cnt += 2
@@ -336,6 +247,7 @@ def group_time_series_hyp3(ts1, corr_list, figure_size):
         j1 -= 1
 
     return fig, axs
+
 
 # if __name__ == "__main__":
 #
