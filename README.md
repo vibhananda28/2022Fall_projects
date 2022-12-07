@@ -8,7 +8,7 @@ Climate change is often linked to the dooms day that bestows upon the world toda
 
 ## HYPOTHESIS AND ANALYSIS
 #### HYP 1: 
-Electronic waste generation (overall and per capita) as well as percent of material recovery have a strong relationship with education. we believe that developed coutnries should have higher material recovery rates. Additionally, we also believe that develped countries would generate more electronic waste given the affordibility and higher use of technology. We will use both education attainment and education expenditure statistics to evaluate the relationship. 
+Electronic waste generation (overall and per capita) as well as percent of material recovery have a strong relationship with education. We believe that developed countries should have higher material recovery rates given the resources at their disposal. Additionally, we also believe that more educated people generate more electronic waste given the affordability and higher use of technology. We will use both education attainment and education expenditure statistics to evaluate the relationship. 
 
 #### HYP 2: 
 We expect the waste production trend to be downwards and recovery % to be upwards, especially post 2015 when all UN members agreed to UN’s Sustainable Development Goals (Goal 13: Climate action- Take urgent action to combat climate change and its impacts). The Paris Climate Change Agreement was also launched in 2015 making the hypothesis more sound. 
