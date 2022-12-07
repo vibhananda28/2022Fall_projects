@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-from scipy.stats import pearsonr
+from scipy.stats import spearmanr
 
 import datetime
 from IPython.display import display, HTML
@@ -138,19 +138,19 @@ def calculate_correlation(df1, vlist):
     >>> clean_df = pd.read_csv("clean_df.csv")
     >>> clean_df = clean_data1(clean_df, ["Recovery%", "Municipal_waste_generated_percapita"])
     >>> calculate_correlation(clean_df, ["Recovery%", "Municipal_waste_generated_percapita"]) # doctest: +ELLIPSIS
-    [['Austria', 0.8118070209887488],...
+    [['Austria', 0.5572858731924359],...
 
     >>> clean_df = pd.read_csv("clean_df.csv")
     >>> clean_df = clean_data1(clean_df, ["Forest_area", "Municipal_waste_generated_percapita"])
     >>> calculate_correlation(clean_df, ["Forest_area", "Municipal_waste_generated_percapita"]) # doctest: +ELLIPSIS
-    [['Austria', 0.8267992985009449], ['Belgium', -0.32137698966537276],...
+    [['Austria', 0.5701890989988877], ['Belgium', -0.5668334009820518],...
     """
 
     alist = []
     for i1 in df1['Country'].unique():
         df2 = df1.loc[df1['Country'] == i1][['Country', vlist[0], vlist[1]]]
         df2 = df2.dropna()
-        corr, _ = pearsonr(df2[vlist[0]], df2[vlist[1]])
+        corr, _ = spearmanr(df2[vlist[0]], df2[vlist[1]])
         alist.append([i1, corr])
 
     return alist
@@ -166,7 +166,7 @@ def country_groups(alist):
     >>> clean_df = clean_data1(clean_df, ["Recovery%", "Municipal_waste_generated_percapita"])
     >>> alist = calculate_correlation(clean_df, ["Recovery%", "Municipal_waste_generated_percapita"])
     >>> country_groups(alist)# doctest: +ELLIPSIS
-    ([['Germany', -0.3385490316420527], ['Spain', -0.33825072508548054],...
+    ([['Belgium', -0.41086691086691085], ['Germany', -0.35014532910447393],...
     """
     alist1 = []  # for countries with high negative correlation
     alist2 = []  # for countries with high positive correlation
@@ -198,14 +198,14 @@ def group_time_series(ts1, corr_list, figure_size, vlist):
     >>> alist = calculate_correlation(clean_df, ["Recovery%", "Municipal_waste_generated_percapita"])
     >>> corr_list1, corr_list2, corr_list3 = country_groups(alist)
     >>> group_time_series(clean_df, corr_list1, (20,20), ["Recovery%", "Municipal_waste_generated_percapita"])# doctest: +ELLIPSIS
-    (<Figure size 2000x2000 with 20 Axes>, array([[<AxesSubplot: title={'center': 'Germany'}, xlabel='Time', ylabel='Recovery%'>,...
+    (<Figure size 2000x2000 with 22 Axes>, array([[<AxesSubplot: title={'center': 'Belgium'}, xlabel='Time', ylabel='Recovery%'>,...
 
     >>> clean_df = pd.read_csv("clean_df.csv")
     >>> clean_df = clean_data1(clean_df, ["Forest_area", "Municipal_waste_generated_percapita"])
     >>> alist = calculate_correlation(clean_df, ["Forest_area", "Municipal_waste_generated_percapita"])
     >>> corr_list1, corr_list2, corr_list3 = country_groups(alist)
     >>> group_time_series(clean_df, corr_list1, (20,20), ["Forest_area", "Municipal_waste_generated_percapita"])# doctest: +ELLIPSIS
-    (<Figure size 2000x2000 with 34 Axes>, array([[<AxesSubplot: title={'center': 'Belgium'}, xlabel='Time', ylabel='Forest_area'>,...
+    (<Figure size 2000x2000 with 32 Axes>, array([[<AxesSubplot: title={'center': 'Belgium'}, xlabel='Time', ylabel='Forest_area'>,...
     """
     tot_num = len(corr_list) * 2
     num_col = 4  # number of figures to display in one row
