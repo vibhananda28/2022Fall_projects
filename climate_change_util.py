@@ -11,6 +11,14 @@ import datetime
 from IPython.display import display, HTML
 
 
+# # Uncomment these lines if pycharm shows an error Like "AttributeError: module 'backend_interagg' has no attribute 'FigureCanvas'"
+# # Link - https://stackoverflow.com/questions/73745245/error-using-matplotlib-in-pycharm-has-no-attribute-figurecanvas
+# import matplotlib
+# matplotlib.use('TkAgg')
+# import matplotlib.pyplot as plt
+# # Uncomment these lines if pycharm shows an error Like "AttributeError: module 'backend_interagg' has no attribute 'FigureCanvas'"
+
+
 def clean_data(dataframe,column_list):
     """
     Function to drop rows with missing countries or variable names. Also, replaces ".." values with nans.
@@ -208,13 +216,6 @@ def median_trend_plots(df,year_var,plot_var):
 
 
 #Hypothesis 2 and 3 functions
-
-# # Uncomment these lines if pycharm shows an error Like "AttributeError: module 'backend_interagg' has no attribute 'FigureCanvas'"
-# # Link - https://stackoverflow.com/questions/73745245/error-using-matplotlib-in-pycharm-has-no-attribute-figurecanvas
-# import matplotlib
-# matplotlib.use('TkAgg')
-# import matplotlib.pyplot as plt
-# # Uncomment these lines if pycharm shows an error Like "AttributeError: module 'backend_interagg' has no attribute 'FigureCanvas'"
 
 # Hypothesis 2 and 3 common function
 def clean_data1(df1, vlist):
