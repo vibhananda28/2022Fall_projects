@@ -19,7 +19,8 @@ We expect some co-integration between waste generation and forest cover depletio
 
 ## CONCLUSIONS
 
-#### HYP 1: We analyzed trends for each country, correlation overall for all countries for all years and also individually for each country. Overall, there were no strong , noteworthy correlations found. For material recovery, our hypothesis for confirmed given that most countries had a positive correlation between material recovery and education related variables. Most countries also had an upward trending curve over the years. For electric waste generation, the correlation was not apparent. However, based on the trends available, our hypothesis was confirmed as most countries had an upward trending curve. More details are noted in the notebook. 
+#### HYP 1: 
+We analyzed trends for each country, correlation overall for all countries for all years and also individually for each country. Overall, there were no strong , noteworthy correlations found. For material recovery, our hypothesis for confirmed given that most countries had a positive correlation between material recovery and education related variables. Most countries also had an upward trending curve over the years. For electric waste generation, the correlation was not apparent. However, based on the trends available, our hypothesis was confirmed as most countries had an upward trending curve. More details are noted in the notebook. 
 
 #### HYP 2:
 Decreasing waste production trend and increasing recovery% were observed for some countries namely Belgium, Germany, Spain, United Kingdom, Hungary, Japan, Korea, Netherlands, Australia, and Estonia. Apart from them for other countries we either observe that both the variables increase simultaneously (strong correlation) or have a weak correlation between them. Therefore, hypothesis 2 is true only for the countries listed above while it fails in other cases. 
